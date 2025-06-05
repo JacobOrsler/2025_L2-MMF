@@ -137,7 +137,12 @@ while tickets_sold < MAX_TICKETS:
     print()
     name = not_blank("Name: ")
 
-    # If name is exit code, break out of loop
+    # Exit program if exit code used as the first name
+    if name == "xxx" and tickets_sold == 0:
+        print("No tickets were sold. Program ended.")
+        exit()
+
+    # If any other name is exit code, break out of loop
     if name == "xxx":
         break
 
@@ -201,7 +206,6 @@ winner = random.choice(all_names)
 
 # Find index of winner (ie: position in last)
 winner_index = all_names.index(winner)
-print("Winner", winner, "list position", winner_index)
 
 # Retrieve winner ticket price and profit (so we can adjust profit numbers so that winning ticket is excluded)
 ticket_won = mini_movie_frame.at[winner_index, 'Total']
