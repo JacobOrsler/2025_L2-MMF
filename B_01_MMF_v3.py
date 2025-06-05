@@ -201,7 +201,6 @@ winner = random.choice(all_names)
 
 # Find index of winner (ie: position in last)
 winner_index = all_names.index(winner)
-print("Winner", winner, "list position", winner_index)
 
 # Retrieve winner ticket price and profit (so we can adjust profit numbers so that winning ticket is excluded)
 ticket_won = mini_movie_frame.at[winner_index, 'Total']
@@ -220,7 +219,7 @@ print(f"Total Paid: ${total_paid:.2f}")
 print(f"Total Profit: ${total_profit:.2f}")
 
 # Winner announcement
-print(f"The lucky winner is {winner}. Their ticket worth ${ticket_won} is free!")
+print(f"The lucky winner is {winner}. Their ticket worth ${ticket_won:.2f} is free!")
 print(f"Total paid is now ${total_paid - ticket_won:.2f}")
 print(f"Total profit is now ${total_profit - profit_won:.2f}")
 
